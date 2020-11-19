@@ -18,47 +18,6 @@
         
         <nav class="nav navbar-nav navbar-right">
           <ul class="nav navbar-nav">
-            <% if public_signed_in? %>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">マイページ
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">商品一覧
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">カート
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">ログアウト
-                  </button>
-              </li>
-          
-            <% elsif admin_signed_in? %>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">商品一覧
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">会員一覧
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">注文履歴一覧
-                </button>
-              </li>
-              <li class="">
-                <button type="button" class="btn btn-default navbar-btn">ジャンル一覧
-                  </button>
-              </li>
-              <li class="">
-              <button type="button" class="btn btn-default navbar-btn">ログアウト
-                </button>
-              </li>
-
-            <% else %>
               <li class="">
                 <button type="button" class="btn btn-default navbar-btn">About
                 </button>
@@ -72,10 +31,10 @@
                 </button>
               </li>
               <li class="">
-                <button type="button" class="btn btn-default navbar-btn">ログイン
+                <button type="button" class="btn btn-default navbar-btn">ログアウト
                   </button>
               </li>
-            <% end %>
+
           </ul>
         </nav>
       </div>
