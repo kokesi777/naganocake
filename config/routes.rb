@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  #admin
-  devise_for :admins  
+  devise_for :admin
 
-    namespace :admin do
-      root 'homes#top'
-      root 'genres#index'
-      resources :homes
-    end
+  #admin
+  namespace :admin do
+    resources :homes
+    root to: "homes#top"
+
+    resources :genres
+  end
 
 end
