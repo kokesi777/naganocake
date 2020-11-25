@@ -1,0 +1,17 @@
+<h2>商品新規登録</h2>
+<div>
+</div>
+
+<div>
+<%= form_for(@item, url: new_admin_item_path) do |f| %>
+    <p>商品名
+    <%= f.text_field :name %></p>
+    <p>商品説明
+    <%= f.text_area :introduction %></p>
+    <p>ジャンル
+    <%= f.select :genre_id, [["ケーキ", "ケーキ"], ["クッキー", "クッキー"]], include_blank: "選択して下さい" %></p>
+    <p>税抜価格
+    <%= f.text_field :price %></p>
+    <p>販売ステータス
+    <%= f.select :is_active, [["ケーキ", "ケーキ"], ["クッキー", "クッキー"]], include_blank: "選択して下さい" %></p>
+<% end %>

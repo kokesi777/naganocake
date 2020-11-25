@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
     resources :genres
     get 'admin/genres' => 'genres#index'
+
+    resources :items
+    post 'items/new' => 'items#create'
   end
 
 end

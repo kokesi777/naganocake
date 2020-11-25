@@ -11,7 +11,7 @@
 
   <body>
     <header class="navbar navbar-default">
-      <div class="container-field">
+      <div class="container">
         <nav class="nav navbar-nav navbar-left" >
           <span class="text-muted" style="font-size: 20px;">LOGO</span>
         </nav>
@@ -20,7 +20,8 @@
         <ul class="nav navbar-nav">
             <% if admin_signed_in? %>
                   <li class="">
-                    <button type="button" class="btn btn-default navbar-btn">商品一覧
+                    <button type="button" class="btn btn-default navbar-btn">
+                    <%= link_to '商品一覧', admin_items_path %>
                     </button>
                   </li>
                   <li class="">
