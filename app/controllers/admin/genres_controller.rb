@@ -1,8 +1,8 @@
 class Admin::GenresController < ApplicationController
     before_action :authenticate_admin!
+
     def index
         @genre = Genre.new
-        @genres = Genre.all
     end
 
     def show
@@ -20,7 +20,7 @@ class Admin::GenresController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to admin_homes_path, notice: 'ログアウトしました'
+        redirect_to admin_root_path, notice: 'ログアウトしました'
     end
 
 

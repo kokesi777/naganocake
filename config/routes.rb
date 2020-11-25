@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
 
     resources :genres
+    get 'admin/genres' => 'genres#index'
   end
 
 end
