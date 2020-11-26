@@ -1,5 +1,7 @@
+
 <%= form_for(@genre, url: admin_genres_path) do |f| %>
     <p>ジャンル     <%= f.text_field :name %>
-    <%= f.submit '追加' %>
-    </p>
+    <label><%= f.radio_button :is_actibe, "有効" ,checked: "checked"%> 有効 </label>
+    <label><%= f.radio_button :is_actibe, "無効" ,checked: "checked"%> 無効</label>
+    <%= f.submit '追加' %>  </p>
 <% end %>
