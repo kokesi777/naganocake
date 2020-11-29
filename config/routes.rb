@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
   get 'end_users/my_page' => "public/end_users#show"
-  
+  get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
 
 
   
