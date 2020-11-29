@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/about" => "public/homes#about"
   get 'end_users/my_page' => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
+  get 'end_users/edit' => "public/end_users#edit"
 
 
   
