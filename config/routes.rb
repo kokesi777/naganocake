@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'addresses/index'
+    get 'addresses/edit'
+    get 'addresses/create'
+    get 'addresses/update'
+    get 'addresses/destroy'
+  end
   #public
     devise_for :publics, controllers: {
       sessions:      'publics/sessions',
