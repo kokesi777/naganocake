@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post '/addresses' => "public/addresses#create"
   patch '/addresses/:id' => "public/addresses#update"
   delete '/addresses/:id' => "public/addresses#destroy"
+
+  get '/items' => "public/items#index"
   
   #admin
   devise_for :admins, controllers: {
