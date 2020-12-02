@@ -1,5 +1,10 @@
 class Public::AddressesController < ApplicationController
+  def new
+    @addresses = Address.new
+  end
+  
   def index
+    @addresses = Address.all
   end
 
   def edit

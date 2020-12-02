@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-    get 'addresses/create'
-    get 'addresses/update'
-    get 'addresses/destroy'
-  end
+
   #public
     devise_for :publics, controllers: {
       sessions:      'publics/sessions',
@@ -16,16 +10,21 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/top'
     get 'homes/about'
-
+    
   end
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
+
   get 'end_users/my_page' => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   get 'end_users/edit' => "public/end_users#edit"
-
-
+  
+  get '/addresses' => "public/addresses#index"
+  get '/addressess/:id/edit' => "public/addresses#edit"
+  post '/addresses' => "public/addresses#create"
+  patch '/addressess/:id' => "public/addresses#update"
+  delete '/addressess/:id' => "public/addresses#destroy"
   
   #admin
   devise_for :admins, controllers: {
