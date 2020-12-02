@@ -19,12 +19,13 @@ Rails.application.routes.draw do
   get 'end_users/my_page' => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   get 'end_users/edit' => "public/end_users#edit"
-  
+
+ 
   get '/addresses' => "public/addresses#index"
-  get '/addressess/:id/edit' => "public/addresses#edit"
+  get '/addresses/:id/edit' => "public/addresses#edit"
   post '/addresses' => "public/addresses#create"
-  patch '/addressess/:id' => "public/addresses#update"
-  delete '/addressess/:id' => "public/addresses#destroy"
+  patch '/addresses/:id' => "public/addresses#update"
+  delete '/addresses/:id' => "public/addresses#destroy"
   
   #admin
   devise_for :admins, controllers: {
@@ -34,7 +35,6 @@ Rails.application.routes.draw do
 }
 
   namespace :admin do
-    resources :homes
     root to: "homes#top"
 
     resources :genres

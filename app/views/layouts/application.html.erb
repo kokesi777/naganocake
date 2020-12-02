@@ -46,7 +46,8 @@
             <% else %>
 
                   <li class="">
-                    <button type="button" class="btn btn-default navbar-btn">About
+                    <button type="button" class="btn btn-default navbar-btn">
+                    <%= link_to 'About', public_homes_about_path %>
                     </button>
                   </li>
                   <li class="">
@@ -55,12 +56,12 @@
                   </li>
                   <li class="">
                     <button type="button" class="btn btn-default navbar-btn">
-                    <%= link_to '新規登録', new_admin_registration_path %>
+                    <%= link_to '新規登録', new_public_registration_path %>
                     </button>
                   </li>
                   <li class="">
                     <button type="button" class="btn btn-default navbar-btn">
-                    <%= link_to 'ログイン', new_admin_session_path %>
+                    <%= link_to 'ログイン', new_public_session_path %>
                     </button>
                   </li>
             <% end %>

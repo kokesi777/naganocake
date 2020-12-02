@@ -1,5 +1,13 @@
 <h2>配送先登録/一覧</h2>
 
+<div>
+<%= form_for(@address, url: '/addresses') do |f| %>
+    <p>郵便番号</p>
+    <%= f.text_field :post_code %>
+    <% end %>
+</div>
+
+
 
 
 <div>
@@ -15,13 +23,14 @@
 
         <tbody>
             <tr>
-                <td>a</td>
-                <td>c</td>
-                <td>s</td>
-                <td>2</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </tbody>
     </table>
+</div>
 
 <h3>Public::Addresses#index</h3>
 <p>Find me in app/views/public/addresses/index.html.erb</p>
