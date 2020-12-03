@@ -7,11 +7,11 @@ Rails.application.routes.draw do
       registrations: 'publics/registrations'
   }
 
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-    
+  scope module: :public do
+    resources :items, only: [:index, :show]
   end
+
+
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   patch '/addresses/:id' => "public/addresses#update"
   delete '/addresses/:id' => "public/addresses#destroy"
 
-  get '/items' => "public/items#index"
   
   #admin
   devise_for :admins, controllers: {
