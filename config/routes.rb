@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :items, only: [:index, :show]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
 
@@ -21,13 +22,6 @@ Rails.application.routes.draw do
   get 'end_users/edit' => "public/end_users#edit"
 
  
-  get '/addresses' => "public/addresses#index"
-  get '/addresses/:id/edit' => "public/addresses#edit"
-  post '/addresses' => "public/addresses#create"
-  patch '/addresses/:id' => "public/addresses#update"
-  delete '/addresses/:id' => "public/addresses#destroy"
-
-  
   #admin
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -39,11 +33,10 @@ Rails.application.routes.draw do
     root to: "homes#top"
 
     resources :genres
-    get 'admin/genres' => 'genres#index'
 
     resources :items
     post 'items/new' => 'items#create'
-    get 'items/:id' => 'items#show'
+
   end
 
 end

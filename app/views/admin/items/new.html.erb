@@ -13,7 +13,7 @@
     <p>税抜価格
     <%= f.text_field :price %></p>
     <p>販売ステータス
-    <%= f.select :is_active, [["ケーキ", "ケーキ"], ["クッキー", "クッキー"]], include_blank: "選択して下さい" %></p>
+    <%= f.select :is_active, [["有効", "有効"], ["無効", "無効"]], include_blank: "選択して下さい" %></p>
 
     <%= f.submit '新規登録' %>
 <% end %>
