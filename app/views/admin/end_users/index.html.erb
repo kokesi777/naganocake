@@ -1,2 +1,33 @@
+<div>  
+    <h2>会員一覧</h2>
+</div>
+
+<div>
+    <table　class="table">
+        <thead  class="active">
+            <tr>
+                <th>会員ID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <% @end_users.each do |end_users| %>
+                <td><%= @end_user.id %></td>
+                <td><%= @end_user.last_name %><%= @end_user.first.name %></td>
+                <td><%= @end_user.email %></td>
+                <td><%= @end_user.is_delete %></td>
+            <% end %>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
 <h1>Admin::EndUsers#index</h1>
 <p>Find me in app/views/admin/end_users/index.html.erb</p>
