@@ -1,2 +1,42 @@
+<div class="containa">
+    <div class="row">
+        <h2>会員情報編集</h2>
+            <div class="col-xs-2">
+                <td>会員ID</td>
+                <td>氏名</td>
+                <td>フリガナ</td>
+                <td>郵便番号</td>
+                <td>住所</td>
+                <td>電話番号</td>
+                <td>メールアドレス</td>
+            </div>
+            <div class="col-xs-6">
+                <% @end_users.each do |end_user| %>
+                    <%= @end_user.id %>
+                <br>
+                <%= form_for(@end_user) do |f| %>
+                    <%= f.string_field :first_name, class="col-xs-2" %>
+                    <%= f.string_field :last_name, class="col-xs-2" %>
+                <br>
+                    <%= f.string_field :first_name_kana, class="col-xs-2" %>
+                    <%= f.string_field :last_name_kana, class="col-xs-2" %>
+                <br>
+                    <%= string_field :post_code, class="col-xs-2" %>
+                <br>
+                    <%= string_field :address, class="col-xs-8" %>
+                <br>
+                    <%= string_field :telephone_number, class="col-xs-3" %>
+                <br>
+                    <%= string_field :email, class="col-xs-3" %>
+                <br>
+                <br>
+
+                <% f.submit "編集する" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h1>Admin::EndUsers#edit</h1>
 <p>Find me in app/views/admin/end_users/edit.html.erb</p>
