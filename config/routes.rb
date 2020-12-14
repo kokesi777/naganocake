@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   #public
     devise_for :publics, controllers: {
       sessions:      'publics/sessions',
@@ -7,12 +11,12 @@ Rails.application.routes.draw do
       registrations: 'publics/registrations'
   }
 
+
   scope module: :public do
-    resources :items, only: [:index, :show]
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+      resources :items, only: [:index, :show]
+      resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
-
-
+  
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
@@ -21,7 +25,7 @@ Rails.application.routes.draw do
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   get 'end_users/edit' => "public/end_users#edit"
 
- 
+
   #admin
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -36,6 +40,9 @@ Rails.application.routes.draw do
 
     resources :items
     post 'items/new' => 'items#create'
+    get 'items/:id' => 'items#show'
+
+    resources :end_users, only: [:index, :show, :edit, :update]
 
   end
 
