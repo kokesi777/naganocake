@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   #public
     devise_for :publics, controllers: {
       sessions:      'publics/sessions',
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   get 'end_users/edit' => "public/end_users#edit"
 
-
   
   #admin
   devise_for :admins, controllers: {
@@ -38,6 +41,8 @@ Rails.application.routes.draw do
     resources :items
     post 'items/new' => 'items#create'
     get 'items/:id' => 'items#show'
+
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
 
 end
