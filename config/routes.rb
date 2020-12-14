@@ -11,11 +11,11 @@ Rails.application.routes.draw do
       registrations: 'publics/registrations'
   }
 
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-    
-  end
+    scope module: :public do
+      resources :items, only: [:index, :show]
+      resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    end
+
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
@@ -24,14 +24,6 @@ Rails.application.routes.draw do
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   get 'end_users/edit' => "public/end_users#edit"
 
- 
-  get '/addresses' => "public/addresses#index"
-  get '/addresses/:id/edit' => "public/addresses#edit"
-  post '/addresses' => "public/addresses#create"
-  patch '/addresses/:id' => "public/addresses#update"
-  delete '/addresses/:id' => "public/addresses#destroy"
-
-  get '/items' => "public/items#index"
   
   #admin
   devise_for :admins, controllers: {
