@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   #public
     devise_for :publics, controllers: {
       sessions:      'publics/sessions',
@@ -9,12 +14,24 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/top'
     get 'homes/about'
+    
   end
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'end_users/my_page' => "public/end_users#show"
+  get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
+  get 'end_users/edit' => "public/end_users#edit"
+
+ 
+  get '/addresses' => "public/addresses#index"
+  get '/addresses/:id/edit' => "public/addresses#edit"
+  post '/addresses' => "public/addresses#create"
+  patch '/addresses/:id' => "public/addresses#update"
+  delete '/addresses/:id' => "public/addresses#destroy"
+
+  get '/items' => "public/items#index"
   
   #admin
   devise_for :admins, controllers: {
@@ -24,7 +41,6 @@ Rails.application.routes.draw do
 }
 
   namespace :admin do
-    resources :homes
     root to: "homes#top"
 
     resources :genres
@@ -33,6 +49,8 @@ Rails.application.routes.draw do
     resources :items
     post 'items/new' => 'items#create'
     get 'items/:id' => 'items#show'
+
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
 
 end

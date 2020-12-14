@@ -1,0 +1,32 @@
+
+<h2>会員情報</h2>
+<div class="containa">
+    <div class="col-xs-3">
+       <td>顧客ID</td>
+       <td>氏名</td>
+       <td>フリガナ</td>
+       <td>郵便番号</td>
+       <td>住所</td>
+       <td>電話番号</td>
+       <td>メールアドレス</td>
+    </div>
+    <div class="col-xs-6">
+    <% @end_users.each do |end_user| %>
+        <td></td>
+        <td><%= @end_user.name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </div>
+</div>
+
+<%= link_to "編集する", edit_admin_end_user, class="btn btn-primary" %>
+<%= link_to "注文履歴一覧を見る", edit_admin_end_user, class="btn btn-primary" %>
+
+<% end %>
+
+
+<h1>Admin::EndUsers#show</h1>
+<p>Find me in app/views/admin/end_users/show.html.erb</p>
