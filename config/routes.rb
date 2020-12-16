@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  # devise_for :end_users
   #public
-    devise_for :publics, controllers: {
-      sessions:      'publics/sessions',
-      passwords:     'publics/passwords',
-      registrations: 'publics/registrations'
+    devise_for :end_users, controllers: {
+      sessions:      'public/end_users/sessions',
+      passwords:     'public/end_users/passwords',
+      registrations: 'public/end_users/registrations'
   }
 
 
@@ -23,15 +24,16 @@ Rails.application.routes.draw do
 
   #admin
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
+    sessions:      'admin/admins/sessions',
+    passwords:     'admin/admins/passwords',
+    registrations: 'admin/admins/registrations'
 }
 
   namespace :admin do
     root to: "homes#top"
 
     resources :genres
+    get 'genres' => 'genres#index'
 
     resources :items
     post 'items/new' => 'items#create'
