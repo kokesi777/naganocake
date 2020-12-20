@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   scope module: :public do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+      resources :end_users, only: [:edit]
   end
   
 
@@ -19,8 +20,7 @@ Rails.application.routes.draw do
 
   get 'end_users/my_page' => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
-  get 'end_users/edit' => "public/end_users#edit"
-
+  
 
   #admin
   devise_for :admins, controllers: {
