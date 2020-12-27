@@ -24,9 +24,15 @@ class Admin::GenresController < ApplicationController
         @genre = Genre.find(params[:id])
     end
 
+    def update
+        @genre = Genre.find(params[:id])
+        @genre.update(genre_params)
+        redirect_to admin_genres_path, notice: '変更しました'
+    end
+
     def destroy
         reset_session
-        redirect_to admin_root_path, notice: 'ログアウトしました'
+        redirect_to admin_genres_path, notice: '削除しました'
     end
 
 

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
 
     resources :genres
-    get 'genres' => 'genres#index'
+
 
     resources :items
     post 'items/new' => 'items#create'
