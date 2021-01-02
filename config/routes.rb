@@ -34,10 +34,8 @@ Rails.application.routes.draw do
 
     resources :genres
 
-
     resources :items
     post 'items/new' => 'items#create'
-    get 'items/:id' => 'items#show'
 
     resources :end_users, only: [:index, :show, :edit, :update]
 

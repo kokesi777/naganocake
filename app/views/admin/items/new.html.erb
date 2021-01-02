@@ -1,19 +1,25 @@
-<h2>商品新規登録</h2>
-<div>
+<div class="container">
+    <div class="row">
+
+        <div class="col-lg-4">
+            <h2>商品新規登録</h2>
+        </div>
+
+        <div class="col-lg-8">
+            <%= form_for(@item, url: new_admin_item_path) do |f| %>
+                <p><%= f.label :name, "商品名", class: "col-xs-3" %>
+                    <%= f.text_field :name, class: "col-xs-8" %></p>
+                <p><%= f.label :name, "商品説明", class: "col-xs-3"  %>
+                    <%= f.text_area :introduction, class: "col-xs-8" %></p>
+                <p><%= f.label :name, "ジャンル", class: "col-xs-3" %>
+                    <%= f.select :genre_id, @genre.map{ |genre| [genre.name, genre.id,]}, { include_blank: '選択してください'}, { required: true } %></p>          
+                <p> <%= f.label :name, "税抜価格", class: "col-xs-3" %>
+                    <%= f.text_field :price, class: "col-xs-8" %> 円<p>
+                <p><%= f.label :name, "販売ステータス", class: "col-xs-3" %>
+                    <%= f.select :is_active, [["販売中", "true"], ["販売停止中", "flase"]], include_blank: "選択して下さい" %><p>
+
+                <%= f.submit '新規登録' %>
+            <% end %>
+        </div>
+    <div>
 </div>
-
-<div>
-<%= form_for(@item, url: new_admin_item_path) do |f| %>
-    <p>商品名
-    <%= f.text_field :name %></p>
-    <p>商品説明
-    <%= f.text_area :introduction %></p>
-    <p>ジャンル
-    <%= f.select :genre_id, [["ケーキ", "ケーキ"], ["クッキー", "クッキー"]], include_blank: "選択して下さい" %></p>
-    <p>税抜価格
-    <%= f.text_field :price %></p>
-    <p>販売ステータス
-    <%= f.select :is_active, [["有効", "有効"], ["無効", "無効"]], include_blank: "選択して下さい" %></p>
-
-    <%= f.submit '新規登録' %>
-<% end %>
