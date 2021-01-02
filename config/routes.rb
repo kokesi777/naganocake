@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
+  # devise_for :end_users
   #public
-    devise_for :publics, controllers: {
-      sessions:      'publics/sessions',
-      passwords:     'publics/passwords',
-      registrations: 'publics/registrations'
+    devise_for :end_users, controllers: {
+      sessions:      'public/end_users/sessions',
+      passwords:     'public/end_users/passwords',
+      registrations: 'public/end_users/registrations'
   }
 
 
   scope module: :public do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+      resources :end_users, only: [:edit]
   end
   
 
@@ -18,14 +20,13 @@ Rails.application.routes.draw do
 
   get 'end_users/my_page' => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
-  get 'end_users/edit' => "public/end_users#edit"
-
+  
 
   #admin
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
+    sessions:      'admin/admins/sessions',
+    passwords:     'admin/admins/passwords',
+    registrations: 'admin/admins/registrations'
 }
 
   namespace :admin do
@@ -35,7 +36,6 @@ Rails.application.routes.draw do
 
     resources :items
     post 'items/new' => 'items#create'
-    get 'items/:id' => 'items#show'
 
     resources :end_users, only: [:index, :show, :edit, :update]
 
