@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_064047) do
+ActiveRecord::Schema.define(version: 2021_01_05_122720) do
 
-  create_table "addresses", id: false, force: :cascade do |t|
+  create_table "addresses", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.string "post_code"
+    t.string "address"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,7 +27,6 @@ ActiveRecord::Schema.define(version: 2020_12_16_064047) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
@@ -58,12 +61,12 @@ ActiveRecord::Schema.define(version: 2020_12_16_064047) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
-    t.integer "price"
-    t.string "name"
-    t.text "introduction"
+    t.integer "genre_id", null: false
+    t.integer "price", null: false
+    t.string "name", null: false
+    t.text "introduction", null: false
     t.string "image_id"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

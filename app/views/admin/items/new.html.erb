@@ -9,13 +9,13 @@
             <%= form_for(@item, url: new_admin_item_path) do |f| %>
                 <p><%= f.label :name, "商品名", class: "col-xs-3" %>
                     <%= f.text_field :name, class: "col-xs-8" %></p>
-                <p><%= f.label :name, "商品説明", class: "col-xs-3"  %>
+                <p><%= f.label :introduction, "商品説明", class: "col-xs-3"  %>
                     <%= f.text_area :introduction, class: "col-xs-8" %></p>
-                <p><%= f.label :name, "ジャンル", class: "col-xs-3" %>
+                <p><%= f.label :genre_id, "ジャンル", class: "col-xs-3" %>
                     <%= f.select :genre_id, @genre.map{ |genre| [genre.name, genre.id,]}, { include_blank: '選択してください'}, { required: true } %></p>          
-                <p> <%= f.label :name, "税抜価格", class: "col-xs-3" %>
+                <p> <%= f.label :price, "税抜価格", class: "col-xs-3" %>
                     <%= f.text_field :price, class: "col-xs-8" %> 円<p>
-                <p><%= f.label :name, "販売ステータス", class: "col-xs-3" %>
+                <p><%= f.label :is_active, "販売ステータス", class: "col-xs-3" %>
                     <%= f.select :is_active, [["販売中", "true"], ["販売停止中", "flase"]], include_blank: "選択して下さい" %><p>
 
                 <%= f.submit '新規登録' %>

@@ -35,6 +35,7 @@ class AddDeviseToEndUsers < ActiveRecord::Migration[5.2]
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
+
     end
 
     add_index :end_users, :email,                unique: true
@@ -44,8 +45,12 @@ class AddDeviseToEndUsers < ActiveRecord::Migration[5.2]
   end
 
   def self.down
-    # By default, we don't want to make any assumption about how to roll back a migration when your
-    # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration
+    remove_column :end_users, :email
+    remove_column :end_users, :encrypted_password
+    remove_column :end_users, :reset_password_token
+    remove_column :end_users, :reset_password_sent_at
+    remove_column :end_users, :remember_created_at
+    remove_index :end_users, :email
+    remove_index :end_users, :reset_password_token
   end
 end
