@@ -1,8 +1,10 @@
-<div>  
+<div class="containa">  
     <h2>会員一覧</h2>
 </div>
 
-<div>
+<div class="row">
+
+<div class="col-xs-8">
     <table class="table">
         <thead class="active">
             <tr>
@@ -16,13 +18,18 @@
             <% @end_users.each do |end_users| %>
                 <tr>
                 <td><%= end_users.id %></td>
-                <td><%= end_users.last_name %><%= end_users.first_name %></td>
+                <td><%= link_to end_users.last_name, admin_end_user_path(end_users) %><%= end_users.first_name %></td>
                 <td><%= end_users.email %></td>
-                <td><%= end_users.is_delete %></td>
+                <% if end_users.is_delete %>
+                    <td>有効</td>
+                <% else %>
+                    <td>無効</td>
+                <% end %>
                 </tr>
             <% end %>
         </tbody>
     </table>
+</div>
 </div>
 
 
