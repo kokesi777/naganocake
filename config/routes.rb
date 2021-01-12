@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
       resources :end_users, only: [:edit, :update]
+      resources :cart_items, only: [:index, :update, :destroy, :create]
   end
   
   get "end_users/my_page" => "public/end_users#show"
