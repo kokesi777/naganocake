@@ -5,4 +5,5 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :cart_items
+  belongs_to :order
 end
