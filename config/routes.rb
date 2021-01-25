@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       registrations: 'public/end_users/registrations'
   }
 
+  get 'orders/complete' => 'public/orders#complete', as: "complete"
+
   scope module: :public do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
   end
 
   post 'orders/confirm' => 'public/orders#confirm'
-  get 'orders/complete' => 'public/orders#complete'
 
 
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
