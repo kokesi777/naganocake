@@ -25,12 +25,19 @@ class Public::OrdersController < ApplicationController
     else
       render 'new'
     end
-    @sum = 0
+      @sum = 0
   end
 
   def create
     @order = Order.new(order_params)
     @order.save
+    current_end_user.cart_items.each do |cart_item|
+      @order_detail = OrderDetail.new
+      @order_detail.item_id = cart_item.item_id
+      @order_detail.order_id = @order.id
+      @order_detail.price = @order.total_payment
+      @order_detail.save
+    end
     redirect_to complete_path
     current_end_user.cart_items.destroy_all
   end
@@ -39,7 +46,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_end_user.order
+    @orders = Order.all
   end
 
   def show
@@ -50,6 +57,6 @@ class Public::OrdersController < ApplicationController
 
   private
    def order_params
-    params.require(:order).permit(:post_code, :name, :address, :payment_method)
+    params.require(:order).permit(:post_code, :name, :address, :payment_method, :total_payment, :end_user_id)
    end
 end
