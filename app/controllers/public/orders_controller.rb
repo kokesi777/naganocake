@@ -36,8 +36,10 @@ class Public::OrdersController < ApplicationController
       @order_detail.item_id = cart_item.item_id
       @order_detail.order_id = @order.id
       @order_detail.price = @order.total_payment
+      @order_detail.amount = cart_item.amount
       @order_detail.save
     end
+    
     redirect_to complete_path
     current_end_user.cart_items.destroy_all
   end
@@ -51,6 +53,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
     @sum = 0
   end
 

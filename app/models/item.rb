@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
     belongs_to :genre
     belongs_to :order
-    belongs_to :order_deatil
-    has_many :cart_item
+    has_many :order_details
+    has_many :cart_items
 end
