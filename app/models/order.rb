@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
     has_many :end_users
-    has_many :items
     has_many :order_details
     
     enum status:{
