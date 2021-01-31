@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+
   # devise_for :end_users
-  #public
+  # public
 
   root to: "public/homes#top"
   get "/about" => "public/homes#about"
@@ -11,14 +12,21 @@ Rails.application.routes.draw do
       registrations: 'public/end_users/registrations'
   }
 
+  get 'orders/complete' => 'public/orders#complete', as: "complete"
+
   scope module: :public do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
       resources :end_users, only: [:edit, :update]
       resources :cart_items, only: [:index, :update, :destroy, :create]
+      resources :orders, only: [:new, :create, :show, :index]
   end
-  
+
+  post 'orders/confirm' => 'public/orders#confirm'
+
+
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+
   get "end_users/my_page" => "public/end_users#show"
   get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   
