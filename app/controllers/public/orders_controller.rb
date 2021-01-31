@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = current_end_user.cart_items
-    @order = Order.new
+    @order = Order.new(order_params)
     if params[:address_num] == "1"
       @order.post_code = current_end_user.post_code
       @order.address = current_end_user.address
