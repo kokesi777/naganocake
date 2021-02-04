@@ -5,8 +5,9 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :cart_items
-  has_many :order
-  has_many :order_detail
+  has_many :orders
+  has_many :order_details
+  has_many :addresses
 
   def active_for_authentication?
     super && (self.is_delete == false)

@@ -1,8 +1,9 @@
 class Public::AddressesController < ApplicationController
+  before_action :authenticate_end_user!
 
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = current_end_user.addresses
   end
   
   def new
@@ -16,11 +17,15 @@ class Public::AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
+    @address.end_user_id = current_end_user.id
     @address.save
     redirect_to '/addresses'
   end
 
   def update
+    @address = Address.find(params[:id])
+    @address.update(address_params)
+    redirect_to addresses_path
   end
 
   def destroy
@@ -32,6 +37,6 @@ class Public::AddressesController < ApplicationController
 
   private
   def address_params
-    params.require(:address).permit(:post_code, :name, :address)
+    params.require(:address).permit(:end_user_id, :post_code, :name, :address)
   end
 end
