@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_035532) do
     t.string "post_code"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_delete"
+    t.boolean "is_delete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

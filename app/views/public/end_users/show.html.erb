@@ -1,28 +1,54 @@
+<div class="containa">
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+        <h3>マイページ</h3>
 
-<h3>マイページ</h3>
+        <h4><strong>登録情報 </strong>
+                <%= link_to '編集する', edit_end_user_path(@end_user.id), class: "btn btn-primary"  %>
+                <%= link_to 'パスワードを変更する', edit_end_user_password_path, class: "btn btn-primary" %>
+        </h4>
+        
+        <div class="row">
+        <div class="col-xs-8">
+            <table class="table table-bordered">
+                <tr>
+                    <td class="active">氏名</th>
+                    <td><%= @end_user.last_name %><%= @end_user.first_name %></td>
+                </tr>
+                <tr>
+                    <td class="active">カナ</td>
+                    <td><%= @end_user.last_name_kana %><%= @end_user.first_name_kana %></td>
+                </tr>
+                <tr>
+                    <td class="active">郵便番号</td>
+                    <td><%= @end_user.post_code %></td>
+                </tr>
+                <tr>
+                    <td class="active">住所</td>
+                    <td><%= @end_user.address %></td>
+                </tr>
+                <tr>
+                    <td class="active">電話番号</td>
+                    <td><%= @end_user.telephone_number %></td>
+                </tr>
+                <tr>
+                    <td class="active">メールアドレス</td>
+                    <td><%= @end_user.email %></td>
+                </tr>     
+            </table>
+        </div>
+        </div>
 
-<h3>登録情報 
-    <button type="button" class="btn btn-default navbar-btn">
-        <%= link_to '編集する' %>
-    </button>
-    <button type="button" class="btn btn-default navbar-btn">
-        <%= link_to 'パスワードを変更する' %>
-    </button>
-</h3>
+        <h4><strong>配送先  </strong><%= link_to '一覧を見る', addresses_path, class: "btn btn-primary" %>
+        </h4>
 
-<table></table>
-
-<h3>配送先
-    <button type="button" class="btn btn-default navbar-btn">
-        <%= link_to '一覧を見る' %>
-    </button>
-</h3>
-
-<h3>注文履歴
-    <button type="button" class="btn btn-default navbar-btn">
-        <%= link_to '一覧を見る' %>
-    </button>   
-</h3>
+        <h4><strong>注文履歴  <%= link_to '一覧を見る', orders_path, class: "btn btn-primary"%>
+        </h4>
+    </div>
+    <div class="col-xs-1"></div>
+</div>
+</div>
 
 
 <p>public/end_users#show</p>
