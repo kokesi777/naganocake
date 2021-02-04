@@ -6,7 +6,6 @@ class EndUser < ApplicationRecord
   
   has_many :cart_items
   has_many :orders
-  has_many :order_details
   has_many :addresses
 
   def active_for_authentication?

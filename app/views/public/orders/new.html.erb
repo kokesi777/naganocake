@@ -20,7 +20,7 @@
                         <%= current_end_user.first_name %><%= current_end_user.last_name %><br><br>
                     <%= radio_button_tag :address_num, 2 %>
                     <%= f.label :address_num, "登録済住所から選択" %><br>
-                        <%= f.collection_select :address, Address.all, :id, :address,{ prompt: "選択してください" } %><br><br>
+                        <%= f.collection_select :address, current_end_user.addresses.all, :id, :address,{ prompt: "選択してください" } %><br><br>
 
                     <%= radio_button_tag :address_num, 3 %>
                     <%= f.label :address_num, "新しいお届け先" %><br>
