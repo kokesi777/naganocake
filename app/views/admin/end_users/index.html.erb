@@ -1,40 +1,37 @@
-<div class="containa">  
-    <h2>会員一覧</h2>
+<div class="containa">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <h2>会員一覧</h2>
+
+                <div class="col-xs-8">
+                    <table class="table">
+                        <thead class="active">
+                            <tr>
+                                <th>会員ID</th>
+                                <th>氏名</th>
+                                <th>メールアドレス</th>
+                                <th>ステータス</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% @end_users.each do |end_users| %>
+                                <tr>
+                                <td><%= end_users.id %></td>
+                                <td><%= link_to end_users.last_name + end_users.first_name, admin_end_user_path(end_users) %></td>
+                                <td><%= end_users.email %></td>
+                                <% if end_users.is_delete %>
+                                    <td>無効</td>
+                                <% else %>
+                                    <td>有効</td>
+                                <% end %>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
+            
+        </div>
+        <div class="col-xs-1"><div>
+    </div>
 </div>
-
-<div class="row">
-
-<div class="col-xs-8">
-    <table class="table">
-        <thead class="active">
-            <tr>
-                <th>会員ID</th>
-                <th>氏名</th>
-                <th>メールアドレス</th>
-                <th>ステータス</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @end_users.each do |end_users| %>
-                <tr>
-                <td><%= end_users.id %></td>
-                <td><%= link_to end_users.last_name, admin_end_user_path(end_users) %><%= end_users.first_name %></td>
-                <td><%= end_users.email %></td>
-                <% if end_users.is_delete %>
-                    <td>無効</td>
-                <% else %>
-                    <td>有効</td>
-                <% end %>
-                </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>
-</div>
-
-
-
-
-
-<h1>Admin::EndUsers#index</h1>
-<p>Find me in app/views/admin/end_users/index.html.erb</p>
