@@ -48,6 +48,8 @@ Rails.application.routes.draw do
 
     resources :end_users, only: [:index, :show, :edit, :update]
 
+    resources :orders, only: [:index, :show, :update]
+
   end
 
 end
