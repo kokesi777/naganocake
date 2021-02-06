@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   }
 
   get 'orders/complete' => 'public/orders#complete', as: "complete"
-
+  patch "end_users/withdraw" => "public/end_users#withdraw"
+  get "end_users/my_page" => "public/end_users#show"
+  get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
+  
   scope module: :public do
       resources :items, only: [:index, :show]
       resources :addresses, only: [:index, :edit, :create, :update, :destroy]
@@ -26,9 +29,6 @@ Rails.application.routes.draw do
 
 
   delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
-
-  get "end_users/my_page" => "public/end_users#show"
-  get 'end_users/unsubscribe' => "public/end_users#unsubscribe"
   
 
   #admin
@@ -47,6 +47,8 @@ Rails.application.routes.draw do
     post 'items/new' => 'items#create'
 
     resources :end_users, only: [:index, :show, :edit, :update]
+
+    resources :orders, only: [:index, :show, :update]
 
   end
 

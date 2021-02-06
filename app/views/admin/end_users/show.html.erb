@@ -1,37 +1,53 @@
 <div class="containa">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <h2>会員情報詳細</h2>
+                <div class="row">
+                    <div class="col-xs-2">
+                            <tr>
+                                <th>顧客ID</th><br><br>
+                                <th>氏名</th><br><br>
+                                <th>フリガナ</th><br><br>
+                                <th>郵便番号</th><br><br>
+                                <th>住所</th><br><br>
+                                <th>電話番号</th><br><br>
+                                <th>メールアドレス</th><br><br>
+                            </tr>
+                    </div>
+                    <div class="col-xs-8">
+                            <tr>
+                                <td><%= @end_user.id %>  <span class="category">
+                                    <% if @end_user.is_delete %>
+                                    有効会員
+                                    <% else %>
+                                    無効会員
+                                    <% end %>
+                                    </span></td><br><br>
+                                <td><%= @end_user.first_name %></td><br><br>
+                                <td><%= @end_user.first_name_kana %></td><br><br>
+                                <td><%= @end_user.post_code %></td><br><br>
+                                <td><%= @end_user.address %></td><br><br>
+                                <td><%= @end_user.telephone_number %></td><br><br>
+                                <td><%= @end_user.email %></td><br><br>
+                            </tr>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
 
-<h2>会員情報詳細</h2>
+                <br>
+                <br>
 
-<div class="row">
-    <div class="col-xs-2"></div>
-    <div class="col-xs-3">
-            <tr>
-                <th>顧客ID</th><br />
-                <th>氏名</th><br />
-                <th>フリガナ</th><br />
-                <th>郵便番号</th><br />
-                <th>住所</th><br />
-                <th>電話番号</th><br />
-                <th>メールアドレス</th><br />
-            </tr>
-    </div>
-    <div class="col-xs-3">
-            <tr>
-                <td><%= @end_user.id %></td><br />
-                <td><%= @end_user.first_name %></td><br />
-                <td><%= @end_user.first_name_kana %></td><br />
-                <td><%= @end_user.post_code %></td><br />
-                <td><%= @end_user.address %></td><br />
-                <td><%= @end_user.telephone_number %></td><br />
-                <td><%= @end_user.email %></td><br />
-            </tr>
+                <div class="row">
+                    <div class="col-xs-1">
+                        <%= link_to "編集する", edit_admin_end_user_path(@end_user), class:"btn btn-primary" %>
+                    </div>
+                    <div class="col-xs-2"></div>
+                        <%= link_to "注文履歴一覧を見る", admin_order_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+        </div>
+        <div class="col-xs-1"><div>
     </div>
 </div>
-
-<div class="col-xs-4">
-    <%= link_to "編集する", edit_admin_end_user_path(@end_user), class:"btn btn-primary" %>
-    <%= link_to "注文履歴一覧を見る", edit_admin_end_user_path, class: "btn btn-primary" %>
-</div>
-
-<h5>Admin::EndUsers#show</h5>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+    
