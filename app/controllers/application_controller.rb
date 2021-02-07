@@ -4,19 +4,20 @@ class ApplicationController < ActionController::Base
   
     # ログイン後
     def after_sign_in_path_for(resource)
-      if Admin
+      case resource
+      when Admin
         admin_root_path
-      else
+      when EndUser
         root_path
       end
     end
 
     # ログアウト後
     def after_sign_out_path_for(resource)
-      if current_end_user
-        root_path
-      else
+      if resource == :admin
         new_admin_session_path
+      else
+        root_path
       end
     end
 
