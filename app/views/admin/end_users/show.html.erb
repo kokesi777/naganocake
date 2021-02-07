@@ -19,13 +19,13 @@
                             <tr>
                                 <td><%= @end_user.id %>  <span class="category">
                                     <% if @end_user.is_delete %>
-                                    有効会員
-                                    <% else %>
                                     無効会員
+                                    <% else %>
+                                    有効会員
                                     <% end %>
                                     </span></td><br><br>
-                                <td><%= @end_user.first_name %></td><br><br>
-                                <td><%= @end_user.first_name_kana %></td><br><br>
+                                <td><%= @end_user.first_name %><%= @end_user.last_name %></td><br><br>
+                                <td><%= @end_user.first_name_kana %><%= @end_user.last_name_kana %></td><br><br>
                                 <td><%= @end_user.post_code %></td><br><br>
                                 <td><%= @end_user.address %></td><br><br>
                                 <td><%= @end_user.telephone_number %></td><br><br>
