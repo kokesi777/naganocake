@@ -31,18 +31,18 @@
                         
                         <%= f.email_field :email, size: "50" %><br><br>
                         
-                        <%= f.radio_button :is_delete, "有効", checked: "checked" %>
-                            <%= f.label :is_delete, "有効" %>
-                        <%= f.radio_button :is_delete, "無効" %>
-                        <%= f.label :is_delete, "無効" %><br>
+                        <%= f.radio_button :is_delete, true, checked: "checked" %>
+                            <%= f.label :is_delete, "退会済" %>
+                        <%= f.radio_button :is_delete, false %>
+                        <%= f.label :is_delete, "有効" %><br>
+                        <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+                <% end %>
                 </div>
                 <div class="col-xs-4"></div>
             </div>
 
             <div class="row">
-                <div class="col-xs-6">
-                    <%= f.submit "変更を保存する", class: "btn btn-primary" %></div>
-                <% end %>
+                <div class="col-xs-6"></div>
                 <div class="col-xs-6"></div>
             </div>
         </div>
