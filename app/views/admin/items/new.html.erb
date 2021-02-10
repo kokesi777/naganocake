@@ -1,22 +1,23 @@
 <div class="container">
     <div class="row">
 
+    <h2>商品新規登録</h2>
         <div class="col-lg-4">
-            <h2>商品新規登録</h2>
+        <%= form_for(@item, url: new_admin_item_path) do |f| %>
+            <%= f.attachment_field :image, class: "col-xs-8" %>
         </div>
 
         <div class="col-lg-8">
-            <%= form_for(@item, url: new_admin_item_path) do |f| %>
-                <p><%= f.label :name, "商品名", class: "col-xs-3" %>
-                    <%= f.text_field :name, class: "col-xs-8" %></p>
-                <p><%= f.label :introduction, "商品説明", class: "col-xs-3"  %>
-                    <%= f.text_area :introduction, class: "col-xs-8" %></p>
-                <p><%= f.label :genre_id, "ジャンル", class: "col-xs-3" %>
-                    <%= f.select :genre_id, @genre.map{ |genre| [genre.name, genre.id,]}, { include_blank: '選択してください'}, { required: true } %></p>          
-                <p> <%= f.label :price, "税抜価格", class: "col-xs-3" %>
-                    <%= f.text_field :price, class: "col-xs-8" %> 円<p>
-                <p><%= f.label :is_active, "販売ステータス", class: "col-xs-3" %>
-                    <%= f.select :is_active, [["販売中", "true"], ["販売停止中", "flase"]], include_blank: "選択して下さい" %><p>
+                <%= f.label :name, "商品名", class: "col-xs-3" %>
+                    <%= f.text_field :name, class: "col-xs-8" %><br><br>
+                <%= f.label :introduction, "商品説明", class: "col-xs-3" %>
+                    <%= f.text_area :introduction, class: "col-xs-8" %><br><br>
+                <%= f.label :genre_id, "ジャンル", class: "col-xs-3" %>
+                    <%= f.select :genre_id, @genre.map{ |genre| [genre.name, genre.id,]}, { include_blank: '選択してください'}, { required: true } %><br><br>
+                <%= f.label :price, "税抜価格", class: "col-xs-3" %>
+                    <%= f.text_field :price, class: "col-xs-4" %> 円<br><br>
+                <%= f.label :is_active, "販売ステータス", class: "col-xs-3" %>
+                    <%= f.select :is_active, [["販売中", "true"], ["販売停止中", "flase"]], include_blank: "選択して下さい" %><br><br>
 
                 <%= f.submit '新規登録' %>
             <% end %>

@@ -3,11 +3,13 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-10">
             <h2>商品詳細</h2>
-                    <div class="col-xs-4">画像</div>
+                    <div class="col-xs-4">
+                        <%= attachment_image_tag @item, :image, size: "100x100", format: "jpeg", fallback: "rails.png" %>
+                    </div>
                     <div class="col-xs-8">
                         <p>商品名 <%= @item.name %></p>
                         <p>説明 <%= @item.introduction %></p>
-                        <p>ジャンル <%= @item.genre_id %></p>
+                        <p>ジャンル <%= @item.genre.name %></p>
                         <p>税抜き価格 <%= @item.price %></p>
                         <p>販売ステータス 
                             <% if @item.is_active %>
