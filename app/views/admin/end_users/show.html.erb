@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-1"></div>
         <div class="col-xs-10">
-            <h2>会員情報詳細</h2>
+            <h3>会員情報詳細</h3>
                 <div class="row">
                     <div class="col-xs-2">
                             <tr>
@@ -24,8 +24,8 @@
                                     有効
                                     <% end %>
                                     </span></td><br><br>
-                                <td><%= @end_user.first_name %><%= @end_user.last_name %></td><br><br>
-                                <td><%= @end_user.first_name_kana %><%= @end_user.last_name_kana %></td><br><br>
+                                <td><%= @end_user.last_name %><%= @end_user.first_name %></td><br><br>
+                                <td><%= @end_user.last_name_kana %><%= @end_user.first_name_kana %></td><br><br>
                                 <td><%= @end_user.post_code %></td><br><br>
                                 <td><%= @end_user.address %></td><br><br>
                                 <td><%= @end_user.telephone_number %></td><br><br>
