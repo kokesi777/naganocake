@@ -1,30 +1,18 @@
-<h2>商品一覧</h2>
-<table class="table">
-        <thead class="active">
-            <tr>
-                <th>商品ID</th>
-                <th>商品名</th>
-                <th>税抜き価格</th>
-                <th>ジャンル</th>
-                <th>ステータス</th>
-            </th>
-        </thead>
-        <tbody>
+<div class="containa">
+    <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+        
+            <h3>商品一覧</h3>
             <% @items.each do |item| %>
-            <tr>
-                <td><%= item.id %></td>
-                <td><%= link_to item.name, item_path(item) %></td>
-                <td><%= item.price %></td>
-                <td><%= item.genre.name %></td>
-                <% if item.is_active %>
-                <td>販売中</td>
-                <% else %>
-                <td>販売停止中</td>
-                <% end %>
-            </tr>
+            <div class="top-items">
+                    <%= attachment_image_tag item, :image, size: "150x150", format: "jpeg", fallback: "rails.png" %>
+                    <p><%= link_to item.name, item_path(item) %></p>
+                    <p><%= item.price %>円</p>
+            </div>
             <% end %>
-        </tbody>
-    </table>
-
-<h3>Public::Items#index</h3>
-<p>Find me in app/views/public/items/index.html.erb</p>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+<div>
+            

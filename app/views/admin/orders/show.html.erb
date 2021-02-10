@@ -30,11 +30,12 @@
                 <div class="col-xs-8">
                     <table class="table">
                         <thead>
-                                <th>商品名</th>
-                                <th>単価</th>
-                                <th>数量</th>
-                                <th>小計</th>
-                                <th>制作ステータス</th>
+                                <th class="active">商品名</th>
+                                <th class="active">単価</th>
+                                <th class="active">数量</th>
+                                <th class="active">小計</th>
+                                <th class="active">制作ステータス</th>
+                                <th  class="active"></th>
                         </thead>
                         <% @order_details.each do |order_detail| %>
                         <tbody>
@@ -42,17 +43,20 @@
                                 <td><%= order_detail.item.price %></td>
                                 <td><%= order_detail.amount %></td>
                                 <td><%= order_detail.amount * order_detail.item.price %></td>
-                                <td><%= order_detail.making_status %></td>
-                                <td>更新</td>
+                                <td>
+                                <%= form_for order_detail, url: admin_order_path(@order) do |f| %>  <!--oreder controllerのupdateの飛ぶ-->
+                                <%= f.select :making_status,["制作不可","制作待ち","制作中","制作完了"] ,style: "margin-top:10px;#" %></td>
+                                <td><%= f.submit "更新" ,class: "btn btn-primary btn-sm" %><br>
+                                <% end %></td>
                         </tbody>
                         <% @sum =+ order_detail.amount * order_detail.item.price %>
                         <% end %>
                     </table>
                 </div>
                 <div class="col-xs-2">
-                    商品合計<br>
-                    送料<br>
-                    請求金額合計<br>
+                    <strong>商品合計</strong><br>
+                    <strong>送料</strong><br>
+                    <strong>請求金額合計</strong><br>
                 </div>
                 <div class="col-xs-2">
                     <%= @sum %><br>
