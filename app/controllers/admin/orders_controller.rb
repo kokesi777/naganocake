@@ -4,16 +4,18 @@ class Admin::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @order_details = OrderDetail.all
+    @total_amount = 0
   end
 
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
+    @sum = 0
   end
 
   def update
     @order = Order.find(params[:id])
-    @order.update(prder_params)
+    @order.update(order_params)
     #if @order.order_status == "入金確認" #注文ステータスが入金確認なら下の事をする
         #@order_items.update_all(making_status: 1) #製作ステータスを「製作待ちに」　更新
       #end

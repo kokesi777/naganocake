@@ -11,7 +11,7 @@
                     <label>支払方法</label><br>
                     <label>注文ステータス</label><br>
                 </div>
-
+                [["販売中", "true"], ["販売停止中", "flase"]]
                 <div class="col-xs-6">
                     <%= @order.end_user.last_name %><%= @order.end_user.first_name %><br>
                     <%= @order.post_code %><%= @order.address %><br>
@@ -43,13 +43,13 @@
                                 <td><%= order_detail.item.price %></td>
                                 <td><%= order_detail.amount %></td>
                                 <td><%= order_detail.amount * order_detail.item.price %></td>
+                                <% @sum += (order_detail.price * order_detail.amount) %>
                                 <td>
                                 <%= form_for order_detail, url: admin_order_path(@order) do |f| %>  <!--oreder controllerのupdateの飛ぶ-->
                                 <%= f.select :making_status,["制作不可","制作待ち","制作中","制作完了"] ,style: "margin-top:10px;#" %></td>
-                                <td><%= f.submit "更新" ,class: "btn btn-primary btn-sm" %><br>
-                                <% end %></td>
+                                <td><%= f.submit "更新" ,class: "btn btn-primary btn-sm" %></td>
+                                <% end %>
                         </tbody>
-                        <% @sum =+ order_detail.amount * order_detail.item.price %>
                         <% end %>
                     </table>
                 </div>
@@ -68,6 +68,6 @@
         
 
         </div>
-        <div class="col-xs-1"><div>
+        <div class="col-xs-1"></div>
     </div>
 </div>
