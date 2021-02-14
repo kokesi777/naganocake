@@ -11,13 +11,12 @@
                     <label>支払方法</label><br>
                     <label>注文ステータス</label><br>
                 </div>
-                [["販売中", "true"], ["販売停止中", "flase"]]
                 <div class="col-xs-6">
                     <%= @order.end_user.last_name %><%= @order.end_user.first_name %><br>
                     <%= @order.post_code %><%= @order.address %><br>
                     <%= @order.payment_method %><br>
                     <%= form_for @order, url: admin_order_path do |f| %>  <!--oreder controllerのupdateの飛ぶ-->
-                    　<%= f.select :order_status,["入金待ち","入金確認","製作中","発送準備中","発送済"] ,style: "margin-top:10px;#" %>
+                    　<%= f.select :status,["入金待ち","入金確認","製作中","発送準備中","発送済"] ,style: "margin-top:10px;#" %>
                     <%= f.submit "更新" ,class: "btn btn-primary btn-sm" %><br>
                     <% end %>
                 </div>
