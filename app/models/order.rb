@@ -2,7 +2,7 @@ class Order < ApplicationRecord
     belongs_to :end_user
     has_many :order_details
     
-    enum status:{
+    enum status: {
         入金待ち: 0,
         入金確認: 1,
         制作中: 2,
