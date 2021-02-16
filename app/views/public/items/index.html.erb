@@ -6,7 +6,7 @@
             <h3>商品一覧</h3>
             <% @items.each do |item| %>
             <div class="top-items">
-                    <%= attachment_image_tag item, :image, size: "150x150", format: "jpeg", fallback: "rails.png" %>
+                    <%= attachment_image_tag item, :image, size: "150x150", format: "jpeg", fallback: "no-image.png" %>
                     <p><%= link_to item.name, item_path(item) %></p>
                     <p><%= item.price %>円</p>
             </div>

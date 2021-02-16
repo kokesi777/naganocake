@@ -16,15 +16,16 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    #if @order.order_status == "入金確認" #注文ステータスが入金確認なら下の事をする
-        #@order_items.update_all(making_status: 1) #製作ステータスを「製作待ちに」　更新
-      #end
+    if @order.status == "入金確認" #注文ステータスが入金確認なら
+      @order.order_details.update_all(making_status: 1) #製作ステータスを製作待ち
+    end
+    flash[:notice] = "注文ステータスを更新しました"
     redirect_to admin_order_path
   end
 
 
   private
   def order_params
-    params.require(:order).permit(:order_status)
+    params.require(:order).permit(:status)
   end
 end
