@@ -3,8 +3,8 @@ class Admin::GenresController < ApplicationController
 
     def index
         @genre = Genre.new
-        @genres = Genre.all
-    end
+        @genres = Genre.page(params[:page]).reverse_order
+        end
 
     def new
         @genre = Genre.new

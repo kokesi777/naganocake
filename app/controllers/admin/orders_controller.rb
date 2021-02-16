@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:id]).reverse_order
     @order_details = OrderDetail.all
     @total_amount = 0
   end
