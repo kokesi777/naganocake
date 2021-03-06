@@ -1,0 +1,56 @@
+<div class="containa">
+<div class="row">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-10">
+        <h3>登録情報編集</h3>
+        <%= form_for(@end_user, url: end_users_my_page_path) do |f| %>
+            <div class="row">
+                <div class="col-xs-2">
+                    <label>名前</label><br><br>
+                    <label>フリガナ</label><br><br>
+                    <label>メールアドレス</label><br><br>
+                    <label>郵便番号（ハイフンなし）</label><br><br>
+                    <label>住所</label><br><br>
+                    <label>電話番号（ハイフンなし）</label><br><br>
+                </div>
+                <div class="col-xs-1">
+                    <label>（姓）</label><br><br>
+                    <label>（セイ）</label><br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                </div>
+                <div class="col-xs-3">
+                    <%= f.text_field :last_name %><br><br>
+                    <%= f.text_field :last_name_kana %><br><br>
+                    <%= f.text_field :email , size: "50"%><br><br>
+                    <%= f.text_field :post_code %><br><br>
+                    <%= f.text_field :address , size: "50"%><br><br>
+                    <%= f.text_field :telephone_number %><br><br>
+                </div>
+                <div class="col-xs-1">
+                    <label>（名）</label><br><br>
+                    <label>（メイ）</label><br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                    <br><br>
+                </div>
+                <div class="col-xs-5">
+                    <%= f.text_field :first_name %></label><br><br>
+                    <%= f.text_field :first_name_kana %></label><br><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-4"><%= f.submit '編集内容を保存する', class: "btn btn-primary"  %></div>
+                <% end %>
+                <div class="col-xs-4"><%= link_to "退会する", end_users_unsubscribe_path, method: :get, class: "btn btn-danger" %></div>
+                <div class="col-xs-2"></div>
+            </div>
+
+    </div>
+    <div class="col-xs-1"></div>
+</div>
+</div>

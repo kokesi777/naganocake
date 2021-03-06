@@ -1,0 +1,53 @@
+<div class="containa">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <h3>会員情報詳細</h3>
+                <div class="row">
+                    <div class="col-xs-2">
+                            <tr>
+                                <th>顧客ID</th><br><br>
+                                <th>氏名</th><br><br>
+                                <th>フリガナ</th><br><br>
+                                <th>郵便番号</th><br><br>
+                                <th>住所</th><br><br>
+                                <th>電話番号</th><br><br>
+                                <th>メールアドレス</th><br><br>
+                            </tr>
+                    </div>
+                    <div class="col-xs-8">
+                            <tr>
+                                <td><%= @end_user.id %>  <span class="category">
+                                    <% if @end_user.is_delete %>
+                                    退会済
+                                    <% else %>
+                                    有効
+                                    <% end %>
+                                    </span></td><br><br>
+                                <td><%= @end_user.last_name %><%= @end_user.first_name %></td><br><br>
+                                <td><%= @end_user.last_name_kana %><%= @end_user.first_name_kana %></td><br><br>
+                                <td><%= @end_user.post_code %></td><br><br>
+                                <td><%= @end_user.address %></td><br><br>
+                                <td><%= @end_user.telephone_number %></td><br><br>
+                                <td><%= @end_user.email %></td><br><br>
+                            </tr>
+                    </div>
+                    <div class="col-xs-2"></div>
+                </div>
+
+                <br>
+                <br>
+
+                <div class="row">
+                    <div class="col-xs-1">
+                        <%= link_to "編集する", edit_admin_end_user_path(@end_user), class:"btn btn-primary" %>
+                    </div>
+                    <div class="col-xs-2"></div>
+                        <%= link_to "注文履歴一覧を見る", admin_order_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>
+    
