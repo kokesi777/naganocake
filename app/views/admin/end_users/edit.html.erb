@@ -1,0 +1,51 @@
+<div class="containa">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <h3><%= @end_user.first_name %><%= @end_user.last_name %>さんの会員情報編集</h3>
+
+            <div class="row">
+                <div class="col-xs-2">
+                        <label>会員ID</label>         <br><br>
+                        <label>氏名</label>           <br><br>
+                        <label>フリガナ</label>        <br><br>
+                        <label>郵便番号</label>        <br><br>
+                        <label>住所</label>           <br><br>
+                        <label>電話番号</label>        <br><br>
+                        <label>メールアドレス</label>   <br><br>
+                        <label>会員ステータス</label>   <br><br>
+                </div>
+                <div class="col-xs-6">
+                <%= form_for(@end_user, url: admin_end_user_path(@end_user)) do |f| %>
+                        <%= @end_user.id %><br><br>
+                        
+                        <%= f.text_field :first_name %><%= f.text_field :last_name %><br><br>
+                        
+                        <%= f.text_field :first_name_kana %><%= f.text_field :last_name_kana %><br><br>
+                        
+                        <%= f.text_field :post_code %><br><br>
+                        
+                        <%= f.text_field :address, size: "50"  %><br><br>
+                        
+                        <%= f.text_field :telephone_number %><br><br>
+                        
+                        <%= f.email_field :email, size: "50" %><br><br>
+                        
+                        <%= f.radio_button :is_delete, true, checked: "checked" %>
+                            <%= f.label :is_delete, "退会済" %>
+                        <%= f.radio_button :is_delete, false %>
+                        <%= f.label :is_delete, "有効" %><br>
+                        <%= f.submit "変更を保存する", class: "btn btn-primary" %>
+                <% end %>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6"></div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>

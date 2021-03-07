@@ -1,0 +1,59 @@
+<div class="containa">
+    <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+    
+            <h3>配送先登録/一覧</h3>
+
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-6">
+                    <%= form_for(@address, url: '/addresses') do |f| %>
+                    <%= f.label :郵便番号 %>
+                        <%= f.text_field :post_code %> <br/>
+                    <%= f.label :住　　所 %>
+                        <%= f.text_field :address, size: "50" %> <br/>
+                    <%= f.label :宛　　名 %>
+                        <%= f.text_field :name %> <br/>
+                </div>
+                <div class="col-xs-4">
+                    <%= f.submit '新規登録', class: "btn btn-success" %>
+                    <% end %>
+                </div>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <table class="table table-bordered">
+                            <thead class="active">
+                                <tr>
+                                    <th>郵便番号</th>
+                                    <th>住所</th>
+                                    <th>宛名</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            <% @addresses.each do |address| %>
+                                <tr>
+                                    <td><%= address.post_code %></td>
+                                    <td><%= address.address %></td>
+                                    <td><%= address.name %></td>
+                                    <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success" %>
+                                        <%= link_to "削除する", address_path(address), method: :delete, class:"btn btn-danger" %></td>
+                                </tr>
+                            <% end %>
+                            </tbody>
+                    </table>
+            </div>
+                <div class="col-xs-2"></div>
+            </div>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+</div>
