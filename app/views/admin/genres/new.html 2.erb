@@ -1,0 +1,22 @@
+<h2>ジャンル一覧・追加</h2>
+
+<%= form_for(@genre, url: new_admin_genre_path) do |f| %>
+    <p>ジャンル</p>
+    <%= f.text_field :name %>
+<% end %>
+
+    <table class="table">
+        <thead class="active">
+            <tr>
+                <th>ジャンル</th>
+                <th>状態</th>
+                <th></th>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+
+<p>admin/genres#new</p>
