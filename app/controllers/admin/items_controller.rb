@@ -26,13 +26,13 @@ class Admin::ItemsController < ApplicationController
     def update
         @item = Item.find(params[:id])
         @item.update(item_params)
-        redirect_to admin_item_path
+        redirect_to admin_item_path, notice: '変更を保存しました'
     end
 
     def destroy
         @item = Item.find(params[:id])
         @item.destroy
-        redirect_to admin_items_path
+        redirect_to admin_items_path, notice: '削除しました'
     end
 
     private
