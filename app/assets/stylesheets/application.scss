@@ -16,7 +16,21 @@
  @import "bootstrap-sprockets";  /*ここを追加*/
  @import "bootstrap";            /*ここを追加*/
 
+
  .top-items {
     float: left;
     margin-right: 50px;
+  }
+
+  .text-muted {
+    margin-top :20px;
+    font-size: 30px;
+  }
+  
+  .nav-list {
+    margin-right: 10px;
+  }
+
+  .nav-list a:hover {
+    background-color: red;
   }
