@@ -13,77 +13,78 @@
     <header class="navbar navbar-default">
       <div class="container">
         <nav class="nav navbar-nav navbar-left" >
-          <span class="text-muted" style="font-size: 20px;">LOGO</span>
+          <span class="text-muted">LOGO</span>
         </nav>
         
         <nav class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav">
         <% if end_user_signed_in? %><!--  ユーザーでログイン -->
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'マイページ', end_users_my_page_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '商品一覧', items_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'カート', cart_items_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'ログアウト', destroy_end_user_session_path, method: :delete  %>
                     </button>
                   </li>
 
         <% elsif admin_signed_in? %>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '商品一覧', admin_items_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '会員一覧', admin_end_users_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '注文履歴', admin_orders_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'ジャンル一覧', "/admin/genres" %>
                     </button>
                   </li>
-                    <li class="">
+                    <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %>
                     </button>
                   </li>
 
          <% else %> <!--　ログインしていない　 -->
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
+                    <li class="nav-list">
                     <%= link_to 'About', about_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '商品一覧', items_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to '新規登録', new_end_user_registration_path %>
                     </button>
                   </li>
-                  <li class="">
+                  <li class="nav-list">
                     <button type="button" class="btn btn-default navbar-btn">
                     <%= link_to 'ログイン', new_end_user_session_path %>
                     </button>
